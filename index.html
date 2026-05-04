@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- GitHub Pages cannot run Node; only use this if you host ONLY static files here and run the API elsewhere (same-origin not required). No trailing slash. -->
+    <!-- <meta name="viberoom-api-base" content="https://your-node-server.example.com"> -->
+    <title>viberoom | chill & chat</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="bg-3d-scene" aria-hidden="true">
+        <span class="orb orb-1"></span>
+        <span class="orb orb-2"></span>
+        <span class="orb orb-3"></span>
+        <span class="ring ring-1"></span>
+        <span class="ring ring-2"></span>
+    </div>
+    <div class="app-container">
+        <!-- Join Screen -->
+        <div id="join-screen" class="screen active">
+            <div class="card">
+                <div class="card-glow" aria-hidden="true"></div>
+                <div class="brand-badge">viberoom</div>
+                <h1>Welcome Back</h1>
+                <p>Join the live collaboration lounge</p>
+                <div class="input-group">
+                    <input type="text" id="username-input" placeholder="Enter your display name" autocomplete="off">
+                    <select id="room-select">
+                        <option value="General">General</option>
+                        <option value="Project">Project</option>
+                        <option value="Doubts">Doubts</option>
+                        <option value="Fun">Fun</option>
+                    </select>
+                    <button id="join-btn">Enter Workspace</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chat Screen -->
+        <div id="chat-screen" class="screen">
+            <div class="sidebar">
+                <div class="sidebar-header">
+                    <h3>Online Users</h3>
+                    <span class="sidebar-subtitle">Live participants</span>
+                </div>
+                <ul id="user-list">
+                    <!-- Users will be listed here -->
+                </ul>
+            </div>
+            
+            <div class="main-chat">
+                <div class="chat-header">
+                    <div class="chat-title-wrap">
+                        <h2 id="room-name">Global Lounge</h2>
+                        <span class="chat-subtitle">Real-time project discussion room</span>
+                    </div>
+                    <div class="header-actions">
+                        <button id="refresh-stats-btn" type="button">Refresh Stats</button>
+                        <button id="clear-history-btn" type="button">Clear History</button>
+                        <button id="leave-btn" type="button">Leave</button>
+                    </div>
+                </div>
+                <div class="stats-bar">
+                    <span id="health-status">Server: Checking...</span>
+                    <span id="stats-text">Stats: --</span>
+                </div>
+                <div class="search-bar">
+                    <input type="text" id="search-input" placeholder="Search messages..." autocomplete="off">
+                </div>
+                
+                <div id="message-container" class="messages">
+                    <!-- Messages will appear here -->
+                </div>
+                <div id="typing-indicator" class="typing-indicator"></div>
+                
+                <form id="chat-form" class="chat-input-area">
+                    <input type="text" id="message-input" placeholder="Type a message..." autocomplete="off">
+                    <button type="submit" id="send-btn">
+                        <svg viewBox="0 0 24 24" width="24" height="24">
+                            <path fill="currentColor" d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path>
+                        </svg>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="chat.js"></script>
+</body>
+</html>
